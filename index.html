@@ -488,6 +488,56 @@
       line-height: 1.6;
     }
 
+    /* ── Portfolio ── */
+    .portfolio-section {
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    .portfolio-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px 28px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--emerald);
+    }
+
+    .portfolio-card .p-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(13,124,95,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .portfolio-card .p-info { text-align: left; }
+    .portfolio-card .p-name { font-size: 15px; font-weight: 700; color: var(--charcoal); }
+    .portfolio-card .p-type { font-size: 12px; color: var(--text-lighter); margin-top: 2px; }
+
     /* ── Contact / CTA ── */
     .cta-section {
       padding: 72px 24px;
@@ -642,7 +692,7 @@
         <li><span class="check">&#10003;</span> Contact form with email notifications</li>
         <li><span class="check">&#10003;</span> Google Maps integration</li>
         <li><span class="check">&#10003;</span> Navigation bar + footer with social links</li>
-        <li><span class="check">&#10003;</span> SEO optimized (found on Google)</li>
+        <li><span class="check">&#10003;</span> Shows up on Google searches</li>
         <li><span class="check">&#10003;</span> Bilingual (German + English)</li>
         <li class="highlight"><span class="check">&#8734;</span> Unlimited revisions</li>
       </ul>
@@ -663,7 +713,7 @@
         <li><span class="check">&#10003;</span> Menu/services with photos, descriptions & categories</li>
         <li><span class="check">&#10003;</span> Show/hide items without deleting them</li>
         <li><span class="check">&#10003;</span> Photo gallery you manage from admin</li>
-        <li><span class="check">&#10003;</span> Hero slideshow (images, videos, GIFs)</li>
+        <li><span class="check">&#10003;</span> Homepage slideshow (images, videos, GIFs)</li>
         <li><span class="check">&#10003;</span> Business hours management</li>
         <li><span class="check">&#10003;</span> Premium animations & modern design</li>
         <li><span class="check">&#10003;</span> Domain + business email setup</li>
@@ -686,12 +736,12 @@
         <li class="highlight"><span class="check">&#10003;</span> <strong>Online reservation/booking system</strong></li>
         <li><span class="check">&#10003;</span> Automatic confirmation emails</li>
         <li><span class="check">&#10003;</span> Booking management dashboard</li>
-        <li class="highlight"><span class="check">&#10003;</span> <strong>Online ordering with Stripe payments</strong></li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Online ordering with secure payments</strong></li>
         <li><span class="check">&#10003;</span> Credit card, Apple Pay, Google Pay</li>
         <li><span class="check">&#10003;</span> Order confirmation emails to customer & you</li>
         <li><span class="check">&#10003;</span> Order management with status tracking</li>
         <li><span class="check">&#10003;</span> Pickup & delivery options</li>
-        <li><span class="check">&#10003;</span> Push notifications (instant alerts on your phone)</li>
+        <li><span class="check">&#10003;</span> Instant alerts on your phone when someone orders</li>
         <li class="highlight"><span class="check">&#8734;</span> Unlimited revisions</li>
       </ul>
       <a href="#contact-en" class="plan-cta primary">Get Started</a>
@@ -715,7 +765,7 @@
         <li><span class="check">&#10003;</span> 3D photo gallery carousel</li>
         <li><span class="check">&#10003;</span> 9 branded email templates</li>
         <li><span class="check">&#10003;</span> Works offline (no internet needed)</li>
-        <li><span class="check">&#10003;</span> Rich Google search results</li>
+        <li><span class="check">&#10003;</span> Enhanced Google listing with hours & menu</li>
         <li><span class="check">&#10003;</span> 30 days priority support after launch</li>
         <li class="highlight"><span class="check">&#8734;</span> Unlimited revisions</li>
       </ul>
@@ -782,6 +832,25 @@
       <h3>Go Live</h3>
       <p>Once you're happy, we launch your website. We show you how to use the admin panel. You're in control.</p>
     </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Our Work</div>
+  <h2 class="section-title">Websites We've Built</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurant &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurant</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Food Platform</div></div>
+    </a>
   </div>
 </section>
 
@@ -920,7 +989,7 @@
         <li class="highlight"><span class="check">&#10003;</span> <strong>Online-Reservierungssystem</strong></li>
         <li><span class="check">&#10003;</span> Automatische Bestätigungs-E-Mails</li>
         <li><span class="check">&#10003;</span> Reservierungs-Dashboard</li>
-        <li class="highlight"><span class="check">&#10003;</span> <strong>Online-Bestellung mit Stripe-Zahlung</strong></li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Online-Bestellung mit sicherer Bezahlung</strong></li>
         <li><span class="check">&#10003;</span> Kreditkarte, Apple Pay, Google Pay</li>
         <li><span class="check">&#10003;</span> Bestellbestätigung per E-Mail</li>
         <li><span class="check">&#10003;</span> Bestellverwaltung mit Status-Tracking</li>
@@ -990,6 +1059,25 @@
       <h3>Online gehen</h3>
       <p>Wenn Sie zufrieden sind, starten wir Ihre Website. Wir zeigen Ihnen den Admin-Bereich. Sie haben die volle Kontrolle.</p>
     </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Unsere Arbeit</div>
+  <h2 class="section-title">Websites, die wir gebaut haben</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurant &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurant</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Food-Plattform</div></div>
+    </a>
   </div>
 </section>
 
@@ -1128,7 +1216,7 @@
         <li class="highlight"><span class="check">&#10003;</span> <strong>Système de réservation en ligne</strong></li>
         <li><span class="check">&#10003;</span> E-mails de confirmation automatiques</li>
         <li><span class="check">&#10003;</span> Tableau de bord des réservations</li>
-        <li class="highlight"><span class="check">&#10003;</span> <strong>Commande en ligne avec paiement Stripe</strong></li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Commande en ligne avec paiement sécurisé</strong></li>
         <li><span class="check">&#10003;</span> Carte de crédit, Apple Pay, Google Pay</li>
         <li><span class="check">&#10003;</span> E-mails de confirmation de commande</li>
         <li><span class="check">&#10003;</span> Gestion des commandes avec suivi</li>
@@ -1198,6 +1286,25 @@
       <h3>Mise en ligne</h3>
       <p>Une fois satisfait, on lance votre site. On vous montre comment utiliser l'admin. Vous avez le contrôle.</p>
     </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Notre travail</div>
+  <h2 class="section-title">Sites web que nous avons créés</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurant &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurant</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Plateforme culinaire</div></div>
+    </a>
   </div>
 </section>
 
@@ -1336,7 +1443,7 @@
         <li class="highlight"><span class="check">&#10003;</span> <strong>Sistema di prenotazione online</strong></li>
         <li><span class="check">&#10003;</span> Email di conferma automatiche</li>
         <li><span class="check">&#10003;</span> Dashboard prenotazioni</li>
-        <li class="highlight"><span class="check">&#10003;</span> <strong>Ordini online con pagamento Stripe</strong></li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Ordini online con pagamento sicuro</strong></li>
         <li><span class="check">&#10003;</span> Carta di credito, Apple Pay, Google Pay</li>
         <li><span class="check">&#10003;</span> Email di conferma ordine</li>
         <li><span class="check">&#10003;</span> Gestione ordini con tracciamento stato</li>
@@ -1406,6 +1513,25 @@
       <h3>Online</h3>
       <p>Quando sei soddisfatto, lanciamo il tuo sito. Ti mostriamo come usare l'admin. Hai il controllo totale.</p>
     </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Il nostro lavoro</div>
+  <h2 class="section-title">Siti web che abbiamo creato</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Ristorante &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Ristorante</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Piattaforma alimentare</div></div>
+    </a>
   </div>
 </section>
 
@@ -1544,7 +1670,7 @@
         <li class="highlight"><span class="check">&#10003;</span> <strong>Sistema de reservas online</strong></li>
         <li><span class="check">&#10003;</span> Emails de confirmação automáticos</li>
         <li><span class="check">&#10003;</span> Painel de reservas</li>
-        <li class="highlight"><span class="check">&#10003;</span> <strong>Pedidos online com pagamento Stripe</strong></li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Pedidos online com pagamento seguro</strong></li>
         <li><span class="check">&#10003;</span> Cartão de crédito, Apple Pay, Google Pay</li>
         <li><span class="check">&#10003;</span> Email de confirmação de pedido</li>
         <li><span class="check">&#10003;</span> Gestão de pedidos com rastreamento</li>
@@ -1614,6 +1740,25 @@
       <h3>Ir ao ar</h3>
       <p>Quando estiver satisfeito, lançamos seu site. Mostramos como usar o admin. Você tem o controle.</p>
     </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Nosso trabalho</div>
+  <h2 class="section-title">Sites que construímos</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurante &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurante</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Plataforma de comida</div></div>
+    </a>
   </div>
 </section>
 
