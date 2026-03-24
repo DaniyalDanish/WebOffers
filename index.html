@@ -450,11 +450,32 @@
       border-radius: var(--radius-sm);
       padding: 20px;
       text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
     }
+
+    .addon-card:hover { border-color: var(--emerald); }
 
     .addon-card .addon-icon { font-size: 24px; margin-bottom: 8px; }
     .addon-card .addon-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
     .addon-card .addon-price { font-size: 20px; font-weight: 800; color: var(--emerald); }
+
+    .addon-card .addon-desc {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin 0.3s ease, opacity 0.3s ease;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .addon-card.expanded .addon-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 10px;
+    }
 
     /* ── How It Works ── */
     .how-section {
@@ -804,35 +825,41 @@
   <h2 class="section-title">Need Something Extra?</h2>
   <p class="section-subtitle">Add any of these to any plan.</p>
   <div class="addons-grid">
-    <div class="addon-card">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
       <div class="addon-icon">&#127760;</div>
       <div class="addon-name">Extra Language</div>
       <div class="addon-price">€100</div>
+      <div class="addon-desc">We add your website in another language — French, Turkish, Arabic, or any language you need. Your customers see the site in their own language.</div>
     </div>
-    <div class="addon-card">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
       <div class="addon-icon">&#9993;</div>
       <div class="addon-name">5 Email Templates</div>
       <div class="addon-price">€100</div>
+      <div class="addon-desc">Branded emails that go out automatically — booking confirmations, order receipts, or welcome messages. Professional and in your brand colors.</div>
     </div>
-    <div class="addon-card">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
       <div class="addon-icon">&#128247;</div>
       <div class="addon-name">Social Media Setup</div>
       <div class="addon-price">€100</div>
+      <div class="addon-desc">We set up your Instagram and Google Business profile, connect them to your website, and make sure customers can find you everywhere.</div>
     </div>
-    <div class="addon-card">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
       <div class="addon-icon">&#9997;</div>
       <div class="addon-name">Content Writing</div>
       <div class="addon-price">€100</div>
+      <div class="addon-desc">We write all the text for your website — about your business, your services, descriptions. In two languages, ready to publish.</div>
     </div>
-    <div class="addon-card">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
       <div class="addon-icon">&#128248;</div>
       <div class="addon-name">Image Sourcing</div>
       <div class="addon-price">€100</div>
+      <div class="addon-desc">We find up to 10 high-quality photos for your website — food, interior, or anything your site needs. Professional and royalty-free.</div>
     </div>
-    <div class="addon-card">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
       <div class="addon-icon">&#128736;</div>
       <div class="addon-name">Monthly Maintenance</div>
       <div class="addon-price">€100</div>
+      <div class="addon-desc">We handle updates, fixes, and small changes every month. You just send us a message and we take care of it.</div>
     </div>
   </div>
 </section>
@@ -1061,12 +1088,30 @@
   <h2 class="section-title">Brauchen Sie etwas Zusätzliches?</h2>
   <p class="section-subtitle">Fügen Sie diese zu jedem Paket hinzu.</p>
   <div class="addons-grid">
-    <div class="addon-card"><div class="addon-icon">&#127760;</div><div class="addon-name">Zusätzliche Sprache</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9993;</div><div class="addon-name">5 E-Mail-Vorlagen</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128247;</div><div class="addon-name">Social-Media-Einrichtung</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9997;</div><div class="addon-name">Texterstellung</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128248;</div><div class="addon-name">Bildrecherche</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128736;</div><div class="addon-name">Monatliche Wartung</div><div class="addon-price">€100</div></div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Zusätzliche Sprache</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Ihre Website in einer weiteren Sprache — Französisch, Türkisch, Arabisch oder jede andere. Ihre Kunden sehen die Seite in ihrer eigenen Sprache.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 E-Mail-Vorlagen</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Gebrandete E-Mails, die automatisch versendet werden — Buchungsbestätigungen, Bestellquittungen oder Willkommensnachrichten. Professionell in Ihren Markenfarben.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Social-Media-Einrichtung</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir richten Ihr Instagram- und Google-Business-Profil ein, verknüpfen es mit Ihrer Website und sorgen dafür, dass Kunden Sie überall finden.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Texterstellung</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir schreiben alle Texte für Ihre Website — über Ihr Unternehmen, Ihre Dienste, Beschreibungen. In zwei Sprachen, sofort einsatzbereit.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Bildrecherche</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir finden bis zu 10 hochwertige Fotos für Ihre Website — Essen, Innenraum oder was auch immer Ihre Seite braucht. Professionell und lizenzfrei.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Monatliche Wartung</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir kümmern uns um Updates, Korrekturen und kleine Änderungen jeden Monat. Sie schreiben uns einfach und wir erledigen es.</div>
+    </div>
   </div>
 </section>
 
@@ -1294,12 +1339,30 @@
   <h2 class="section-title">Besoin de quelque chose en plus ?</h2>
   <p class="section-subtitle">Ajoutez ces options à n'importe quel forfait.</p>
   <div class="addons-grid">
-    <div class="addon-card"><div class="addon-icon">&#127760;</div><div class="addon-name">Langue supplémentaire</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9993;</div><div class="addon-name">5 modèles d'e-mails</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128247;</div><div class="addon-name">Config. réseaux sociaux</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9997;</div><div class="addon-name">Rédaction de contenu</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128248;</div><div class="addon-name">Recherche d'images</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128736;</div><div class="addon-name">Maintenance mensuelle</div><div class="addon-price">€100</div></div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Langue supplémentaire</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Votre site dans une langue supplémentaire — français, turc, arabe ou toute autre. Vos clients voient le site dans leur propre langue.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 modèles d'e-mails</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Des e-mails automatiques et personnalisés — confirmations de réservation, reçus de commande ou messages de bienvenue. Aux couleurs de votre marque.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Config. réseaux sociaux</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous configurons votre Instagram et Google Business, les relions à votre site et nous assurons que vos clients vous trouvent partout.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Rédaction de contenu</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous rédigeons tous les textes de votre site — présentation, services, descriptions. En deux langues, prêts à publier.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Recherche d'images</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous trouvons jusqu'à 10 photos de qualité pour votre site — nourriture, intérieur ou tout ce dont votre site a besoin. Professionnelles et libres de droits.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Maintenance mensuelle</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous gérons les mises à jour, corrections et petites modifications chaque mois. Envoyez-nous un message et on s'en occupe.</div>
+    </div>
   </div>
 </section>
 
@@ -1527,12 +1590,30 @@
   <h2 class="section-title">Serve qualcosa in più?</h2>
   <p class="section-subtitle">Aggiungi queste opzioni a qualsiasi piano.</p>
   <div class="addons-grid">
-    <div class="addon-card"><div class="addon-icon">&#127760;</div><div class="addon-name">Lingua aggiuntiva</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9993;</div><div class="addon-name">5 modelli email</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128247;</div><div class="addon-name">Config. social media</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9997;</div><div class="addon-name">Scrittura contenuti</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128248;</div><div class="addon-name">Ricerca immagini</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128736;</div><div class="addon-name">Manutenzione mensile</div><div class="addon-price">€100</div></div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Lingua aggiuntiva</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Il tuo sito in un'altra lingua — francese, turco, arabo o qualsiasi altra. I tuoi clienti vedono il sito nella loro lingua.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 modelli email</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Email automatiche e personalizzate — conferme di prenotazione, ricevute d'ordine o messaggi di benvenuto. Professionali nei colori del tuo brand.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Config. social media</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Configuriamo il tuo Instagram e Google Business, li colleghiamo al sito e ci assicuriamo che i clienti ti trovino ovunque.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Scrittura contenuti</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Scriviamo tutti i testi del tuo sito — presentazione, servizi, descrizioni. In due lingue, pronti per la pubblicazione.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Ricerca immagini</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Troviamo fino a 10 foto di qualità per il tuo sito — cibo, interni o qualsiasi cosa serva. Professionali e royalty-free.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Manutenzione mensile</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Ci occupiamo di aggiornamenti, correzioni e piccole modifiche ogni mese. Mandaci un messaggio e ce ne occupiamo noi.</div>
+    </div>
   </div>
 </section>
 
@@ -1760,12 +1841,30 @@
   <h2 class="section-title">Precisa de algo a mais?</h2>
   <p class="section-subtitle">Adicione estas opções a qualquer plano.</p>
   <div class="addons-grid">
-    <div class="addon-card"><div class="addon-icon">&#127760;</div><div class="addon-name">Idioma adicional</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9993;</div><div class="addon-name">5 modelos de email</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128247;</div><div class="addon-name">Config. redes sociais</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#9997;</div><div class="addon-name">Escrita de conteúdo</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128248;</div><div class="addon-name">Pesquisa de imagens</div><div class="addon-price">€100</div></div>
-    <div class="addon-card"><div class="addon-icon">&#128736;</div><div class="addon-name">Manutenção mensal</div><div class="addon-price">€100</div></div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Idioma adicional</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Seu site em outro idioma — francês, turco, árabe ou qualquer outro. Seus clientes veem o site no próprio idioma.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 modelos de email</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Emails automáticos e personalizados — confirmações de reserva, recibos de pedido ou mensagens de boas-vindas. Profissionais nas cores da sua marca.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Config. redes sociais</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Configuramos seu Instagram e Google Meu Negócio, conectamos ao site e garantimos que seus clientes encontrem você em todo lugar.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Escrita de conteúdo</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Escrevemos todos os textos do seu site — sobre seu negócio, serviços, descrições. Em dois idiomas, prontos para publicar.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Pesquisa de imagens</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Encontramos até 10 fotos de qualidade para seu site — comida, interior ou qualquer coisa que seu site precise. Profissionais e livres de direitos.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Manutenção mensal</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Cuidamos de atualizações, correções e pequenas alterações todo mês. Envie uma mensagem e nós resolvemos.</div>
+    </div>
   </div>
 </section>
 
