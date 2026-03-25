@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Services — Professional Websites for Your Business</title>
+  <meta name="description" content="Professional websites for restaurants, cafes, salons and small businesses. Fixed prices, no monthly fees, 100% responsibility for future bugs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --emerald: #0D7C5F;
+      --emerald-dark: #0A6B51;
+      --gold: #C9A84C;
+      --gold-light: #E2C988;
+      --charcoal: #1A1A1A;
+      --charcoal-light: #2A2A2A;
+      --cream: #F5F0E8;
+      --cream-dark: #E8E0D0;
+      --text: #333;
+      --text-light: #666;
+      --text-lighter: #999;
+      --bg: #FAFAF7;
+      --card-bg: #FFFFFF;
+      --border: #E5E5E5;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+      --shadow-lg: 0 4px 12px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.06);
+      --shadow-xl: 0 8px 24px rgba(0,0,0,0.1), 0 20px 48px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Language Switcher ── */
+    .lang-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--charcoal);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .lang-btn.active { background: var(--gold); color: var(--charcoal); border-color: var(--gold); font-weight: 600; }
+
+    /* ── Hero ── */
+    .hero {
+      margin-top: 44px;
+      background: linear-gradient(135deg, var(--charcoal) 0%, #0B2B22 50%, var(--charcoal) 100%);
+      padding: 80px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(13,124,95,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(201,168,76,0.1) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-2%, 2%); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 800;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .gold { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* ── USP Strip ── */
+    .usp-strip {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .usp-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .usp-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(13,124,95,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ── Why Different Section ── */
+    .why-section {
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--emerald);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .compare-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: left;
+    }
+
+    .compare-card.ours {
+      border-color: var(--emerald);
+      background: linear-gradient(135deg, rgba(13,124,95,0.03) 0%, rgba(201,168,76,0.03) 100%);
+    }
+
+    .compare-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .compare-card.others h3 { color: var(--text-lighter); }
+    .compare-card.ours h3 { color: var(--emerald); }
+
+    .compare-list { list-style: none; }
+
+    .compare-list li {
+      padding: 8px 0;
+      font-size: 14.5px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .compare-list li .icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+    .compare-card.others .compare-list li { color: var(--text-light); }
+    .compare-card.ours .compare-list li { color: var(--text); }
+
+    /* ── Plans Section ── */
+    .plans-section {
+      padding: 56px 24px 72px;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--cream) 100%);
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .plan-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .plan-card.popular {
+      border-color: var(--emerald);
+      box-shadow: var(--shadow-lg), 0 0 0 1px var(--emerald);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--emerald);
+      color: white;
+      padding: 4px 18px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .plan-for {
+      font-size: 13.5px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .plan-price .amount {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--charcoal);
+      letter-spacing: -1px;
+    }
+
+    .plan-price .currency { font-size: 20px; font-weight: 600; color: var(--text-light); }
+
+    .plan-onetime {
+      font-size: 13px;
+      color: var(--emerald);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .plan-delivery {
+      font-size: 13px;
+      color: var(--text-lighter);
+      margin-bottom: 24px;
+    }
+
+    .plan-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 20px;
+    }
+
+    .plan-includes-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-lighter);
+      margin-bottom: 14px;
+    }
+
+    .plan-features {
+      list-style: none;
+      flex: 1;
+    }
+
+    .plan-features li {
+      padding: 5px 0;
+      font-size: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .plan-features li .check {
+      color: var(--emerald);
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .plan-features li.highlight { font-weight: 600; }
+
+    .plan-cta {
+      margin-top: 24px;
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .plan-cta.primary {
+      background: var(--emerald);
+      color: white;
+    }
+    .plan-cta.primary:hover { background: var(--emerald-dark); transform: scale(1.02); }
+
+    .plan-cta.outline {
+      background: transparent;
+      color: var(--emerald);
+      border: 2px solid var(--emerald);
+    }
+    .plan-cta.outline:hover { background: rgba(13,124,95,0.05); }
+
+    /* ── Custom Plan Banner ── */
+    .custom-banner {
+      max-width: 680px;
+      margin: -20px auto 0;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, rgba(13,124,95,0.06) 0%, rgba(201,168,76,0.06) 100%);
+      border: 1px dashed var(--emerald);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .custom-banner p {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .custom-banner strong { color: var(--emerald); }
+
+    /* ── Add-Ons ── */
+    .addons-section {
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .addon-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .addon-card:hover { border-color: var(--emerald); }
+
+    .addon-card .addon-icon { font-size: 24px; margin-bottom: 8px; }
+    .addon-card .addon-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .addon-card .addon-price { font-size: 20px; font-weight: 800; color: var(--emerald); }
+
+    .addon-card .addon-desc {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, margin 0.3s ease, opacity 0.3s ease;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.5;
+      opacity: 0;
+      margin-top: 0;
+    }
+
+    .addon-card.expanded .addon-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+
+    /* ── How It Works ── */
+    .how-section {
+      padding: 56px 24px;
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .how-section .section-label { color: var(--gold); }
+    .how-section .section-title { color: white; }
+    .how-section .section-subtitle { color: rgba(255,255,255,0.55); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: rgba(201,168,76,0.15);
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .step-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* ── Portfolio ── */
+    .portfolio-section {
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    .portfolio-grid {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 20px 28px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--emerald);
+    }
+
+    .portfolio-card .p-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(13,124,95,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .portfolio-card .p-info { text-align: left; }
+    .portfolio-card .p-name { font-size: 15px; font-weight: 700; color: var(--charcoal); }
+    .portfolio-card .p-type { font-size: 12px; color: var(--text-lighter); margin-top: 2px; }
+
+    /* ── Contact / CTA ── */
+    .cta-section {
+      padding: 72px 24px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--bg) 100%);
+    }
+
+    .cta-section .section-title { margin-bottom: 12px; }
+
+    .cta-section .section-subtitle { margin-bottom: 36px; }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn.whatsapp { background: #25D366; color: white; }
+    .cta-btn.whatsapp:hover { background: #1EBE57; transform: scale(1.03); }
+
+    .cta-btn.email { background: var(--charcoal); color: white; }
+    .cta-btn.email:hover { background: #333; transform: scale(1.03); }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-lighter);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Translation System ── */
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+
+    /* Active lang content helpers */
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero { padding: 60px 20px 48px; }
+      .usp-strip { gap: 16px; }
+      .usp-item { font-size: 13px; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .comparison-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .cta-btn { width: 100%; max-width: 320px; justify-content: center; }
+    }
+
+    @media (max-width: 400px) {
+      .plan-card { padding: 24px 20px; }
+      .lang-bar { gap: 4px; padding: 8px 12px; }
+      .lang-btn { padding: 4px 10px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Language Switcher -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('de')">Deutsch</button>
+  <button class="lang-btn" onclick="setLang('fr')">Français</button>
+  <button class="lang-btn" onclick="setLang('it')">Italiano</button>
+  <button class="lang-btn" onclick="setLang('pt')">Português</button>
+</div>
+
+<!-- ═══════════════════ ENGLISH ═══════════════════ -->
+<div class="lang-content active" id="lang-en">
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#9733; Professional Web Development</div>
+    <h1>Your Business Deserves a <span class="gold">Great Website</span></h1>
+    <p class="hero-subtitle">Beautiful, modern websites for restaurants, cafes, salons and small businesses. Fixed prices. No surprises. You stay in control.</p>
+    <div class="usp-strip">
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> No Monthly Fees</div>
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> 100% Bug Responsibility</div>
+      <div class="usp-item"><span class="usp-icon">&#9881;</span> You Control Everything</div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="section-label">Why We're Different</div>
+  <h2 class="section-title">What Other Agencies Don't Tell You</h2>
+  <p class="section-subtitle">Most agencies charge monthly fees and lock you into contracts. We don't.</p>
+  <div class="comparison-grid">
+    <div class="compare-card others">
+      <h3><span>&#128308;</span> Other Agencies</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10007;</span> €3,000 – €10,000+ for a basic website</li>
+        <li><span class="icon">&#10007;</span> €50 – €200/month recurring fees</li>
+        <li><span class="icon">&#10007;</span> 2–3 revisions, then they charge extra</li>
+        <li><span class="icon">&#10007;</span> You need them for every small change</li>
+        <li><span class="icon">&#10007;</span> Months of waiting</li>
+        <li><span class="icon">&#10007;</span> Hidden costs for hosting, updates, support</li>
+      </ul>
+    </div>
+    <div class="compare-card ours">
+      <h3><span>&#128994;</span> What We Offer</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10003;</span> From €700 — full professional website</li>
+        <li><span class="icon">&#10003;</span> <strong>Zero monthly fees</strong> from us</li>
+        <li><span class="icon">&#10003;</span> <strong>100% responsibility</strong> for future bugs</li>
+        <li><span class="icon">&#10003;</span> Admin panel — change everything yourself</li>
+        <li><span class="icon">&#10003;</span> Ready in 1–3 weeks</li>
+        <li><span class="icon">&#10003;</span> One price, everything included</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div style="text-align:center">
+    <div class="section-label">Plans & Pricing</div>
+    <h2 class="section-title">Choose What Fits Your Business</h2>
+    <p class="section-subtitle">Every plan includes 100% responsibility for future bugs and no monthly fees. Pay once, own it forever.</p>
+  </div>
+  <div class="plans-grid">
+    <!-- Starter -->
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-for">A beautiful online presence for your business</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">700</span></div>
+      <div class="plan-onetime">One-time payment</div>
+      <div class="plan-delivery">&#9202; Delivery: 1 week</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">What's included</div>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> Modern responsive website</li>
+        <li><span class="check">&#10003;</span> Works perfectly on phone, tablet & desktop</li>
+        <li><span class="check">&#10003;</span> About Us section</li>
+        <li><span class="check">&#10003;</span> Contact form with email notifications</li>
+        <li><span class="check">&#10003;</span> Google Maps integration</li>
+        <li><span class="check">&#10003;</span> Navigation bar + footer with social links</li>
+        <li><span class="check">&#10003;</span> Shows up on Google searches</li>
+        <li><span class="check">&#10003;</span> Bilingual (German + English)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% responsibility for future bugs</li>
+      </ul>
+      <a href="#contact-en" class="plan-cta outline">Get Started</a>
+    </div>
+
+    <!-- Business -->
+    <div class="plan-card">
+      <div class="plan-name">Business</div>
+      <div class="plan-for">Full control with your own admin panel</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">1,300</span></div>
+      <div class="plan-onetime">One-time payment</div>
+      <div class="plan-delivery">&#9202; Delivery: 1.5 weeks</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Everything in Starter, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Admin panel</strong> — manage everything yourself</li>
+        <li><span class="check">&#10003;</span> Menu/services with photos, descriptions & categories</li>
+        <li><span class="check">&#10003;</span> Show/hide items without deleting them</li>
+        <li><span class="check">&#10003;</span> Photo gallery you manage from admin</li>
+        <li><span class="check">&#10003;</span> Homepage slideshow (images, videos, GIFs)</li>
+        <li><span class="check">&#10003;</span> Business hours management</li>
+        <li><span class="check">&#10003;</span> Premium animations & modern design</li>
+        <li><span class="check">&#10003;</span> Domain + business email setup</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% responsibility for future bugs</li>
+      </ul>
+      <a href="#contact-en" class="plan-cta outline">Get Started</a>
+    </div>
+
+    <!-- Growth -->
+    <div class="plan-card popular">
+      <div class="popular-badge">&#9733; Most Popular</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-for">Take bookings & payments online</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2,000</span></div>
+      <div class="plan-onetime">One-time payment</div>
+      <div class="plan-delivery">&#9202; Delivery: 2 weeks</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Everything in Business, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Online reservation/booking system</strong></li>
+        <li><span class="check">&#10003;</span> Automatic confirmation emails</li>
+        <li><span class="check">&#10003;</span> Booking management dashboard</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Online ordering with secure payments</strong></li>
+        <li><span class="check">&#10003;</span> Credit card, Apple Pay, Google Pay</li>
+        <li><span class="check">&#10003;</span> Order confirmation emails to customer & you</li>
+        <li><span class="check">&#10003;</span> Order management with status tracking</li>
+        <li><span class="check">&#10003;</span> Pickup & delivery options</li>
+        <li><span class="check">&#10003;</span> Instant alerts on your phone when someone orders</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% responsibility for future bugs</li>
+      </ul>
+      <a href="#contact-en" class="plan-cta primary">Get Started</a>
+    </div>
+
+    <!-- Premium -->
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-for">The complete digital system + mobile app</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2,799</span></div>
+      <div class="plan-onetime">One-time payment</div>
+      <div class="plan-delivery">&#9202; Delivery: 3 weeks</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Everything in Growth, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Mobile app</strong> (installable on any phone)</li>
+        <li><span class="check">&#10003;</span> Separate admin app for your phone</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Special offers & deals system</strong></li>
+        <li><span class="check">&#10003;</span> Schedule promotions by date or day of week</li>
+        <li><span class="check">&#10003;</span> "What's On" section on homepage</li>
+        <li><span class="check">&#10003;</span> 3D photo gallery carousel</li>
+        <li><span class="check">&#10003;</span> 9 branded email templates</li>
+        <li><span class="check">&#10003;</span> Works offline (no internet needed)</li>
+        <li><span class="check">&#10003;</span> Enhanced Google listing with hours & menu</li>
+        <li><span class="check">&#10003;</span> 30 days priority support after launch</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% responsibility for future bugs</li>
+      </ul>
+      <a href="#contact-en" class="plan-cta outline">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<div class="plans-section" style="padding-top:0; padding-bottom:48px">
+  <div class="custom-banner">
+    <p>None of these plans fit exactly? <strong>No problem.</strong><br>Tell us what you need and we'll create a custom plan — pick only the features you want, at a fair price.</p>
+  </div>
+</div>
+
+<section class="addons-section">
+  <div class="section-label">Add-Ons</div>
+  <h2 class="section-title">Need Something Extra?</h2>
+  <p class="section-subtitle">Add any of these to any plan.</p>
+  <div class="addons-grid">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div>
+      <div class="addon-name">Extra Language</div>
+      <div class="addon-price">€100</div>
+      <div class="addon-desc">We add your website in another language — French, Turkish, Arabic, or any language you need. Your customers see the site in their own language.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div>
+      <div class="addon-name">5 Email Templates</div>
+      <div class="addon-price">€100</div>
+      <div class="addon-desc">Branded emails that go out automatically — booking confirmations, order receipts, or welcome messages. Professional and in your brand colors.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div>
+      <div class="addon-name">Social Media Setup</div>
+      <div class="addon-price">€100</div>
+      <div class="addon-desc">We set up your Instagram and Google Business profile, connect them to your website, and make sure customers can find you everywhere.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div>
+      <div class="addon-name">Content Writing</div>
+      <div class="addon-price">€100</div>
+      <div class="addon-desc">We write all the text for your website — about your business, your services, descriptions. In two languages, ready to publish.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div>
+      <div class="addon-name">Image Sourcing</div>
+      <div class="addon-price">€100</div>
+      <div class="addon-desc">We find up to 10 high-quality photos for your website — food, interior, or anything your site needs. Professional and royalty-free.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div>
+      <div class="addon-name">Monthly Maintenance</div>
+      <div class="addon-price">€100</div>
+      <div class="addon-desc">We handle updates, fixes, and small changes every month. You just send us a message and we take care of it.</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">3 Simple Steps</h2>
+  <p class="section-subtitle">From first message to live website — no complicated process.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <h3>Tell Us What You Need</h3>
+      <p>Send us a message. Tell us about your business, what you like, and pick a plan. We'll handle the rest.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <h3>We Build, You Review</h3>
+      <p>We design and develop your website. You review it and request as many changes as you want — we take 100% responsibility for future bugs.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <h3>Go Live</h3>
+      <p>Once you're happy, we launch your website. We show you how to use the admin panel. You're in control.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Our Work</div>
+  <h2 class="section-title">Websites We've Built</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurant &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurant</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Food Platform</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section" id="contact-en">
+  <div class="section-label">Ready?</div>
+  <h2 class="section-title">Let's Build Your Website</h2>
+  <p class="section-subtitle">Send us a message — we respond within a few hours. No commitment, just a friendly conversation.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/15738126249" class="cta-btn whatsapp" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp — Daniyal
+    </a>
+    <a href="mailto:mdaniyaldanish@yahoo.com" class="cta-btn email">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email Us
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p data-i18n="footer">Third-party costs (domain, email) are paid by the client directly — typically €3–5/month. No fees from us.</p>
+</footer>
+
+</div><!-- end lang-en -->
+
+
+<!-- ═══════════════════ DEUTSCH ═══════════════════ -->
+<div class="lang-content" id="lang-de">
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#9733; Professionelle Webentwicklung</div>
+    <h1>Ihr Unternehmen verdient eine <span class="gold">großartige Website</span></h1>
+    <p class="hero-subtitle">Schöne, moderne Websites für Restaurants, Cafés, Salons und kleine Unternehmen. Festpreise. Keine Überraschungen. Sie behalten die Kontrolle.</p>
+    <div class="usp-strip">
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> Keine monatlichen Gebühren</div>
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> 100% Verantwortung für Bugs</div>
+      <div class="usp-item"><span class="usp-icon">&#9881;</span> Volle Kontrolle für Sie</div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="section-label">Warum wir anders sind</div>
+  <h2 class="section-title">Was andere Agenturen Ihnen nicht sagen</h2>
+  <p class="section-subtitle">Die meisten Agenturen verlangen monatliche Gebühren und binden Sie an Verträge. Wir nicht.</p>
+  <div class="comparison-grid">
+    <div class="compare-card others">
+      <h3><span>&#128308;</span> Andere Agenturen</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10007;</span> €3.000 – €10.000+ für eine einfache Website</li>
+        <li><span class="icon">&#10007;</span> €50 – €200/Monat laufende Kosten</li>
+        <li><span class="icon">&#10007;</span> 2–3 Änderungen, danach Aufpreis</li>
+        <li><span class="icon">&#10007;</span> Für jede kleine Änderung brauchen Sie die Agentur</li>
+        <li><span class="icon">&#10007;</span> Monatelanges Warten</li>
+        <li><span class="icon">&#10007;</span> Versteckte Kosten für Hosting, Updates, Support</li>
+      </ul>
+    </div>
+    <div class="compare-card ours">
+      <h3><span>&#128994;</span> Was wir bieten</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10003;</span> Ab €700 — professionelle Website</li>
+        <li><span class="icon">&#10003;</span> <strong>Null monatliche Gebühren</strong> von uns</li>
+        <li><span class="icon">&#10003;</span> <strong>100% Verantwortung</strong> für zukünftige Fehler</li>
+        <li><span class="icon">&#10003;</span> Admin-Bereich — alles selbst verwalten</li>
+        <li><span class="icon">&#10003;</span> Fertig in 1–3 Wochen</li>
+        <li><span class="icon">&#10003;</span> Ein Preis, alles inklusive</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div style="text-align:center">
+    <div class="section-label">Pakete & Preise</div>
+    <h2 class="section-title">Wählen Sie das Passende für Ihr Unternehmen</h2>
+    <p class="section-subtitle">Jedes Paket enthält 100% Verantwortung für zukünftige Fehler und keine monatlichen Gebühren. Einmal zahlen, für immer besitzen.</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-for">Eine schöne Online-Präsenz für Ihr Unternehmen</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">700</span></div>
+      <div class="plan-onetime">Einmalzahlung</div>
+      <div class="plan-delivery">&#9202; Lieferung: 1 Woche</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Enthalten</div>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> Moderne responsive Website</li>
+        <li><span class="check">&#10003;</span> Perfekt auf Handy, Tablet & Desktop</li>
+        <li><span class="check">&#10003;</span> Über-uns-Bereich</li>
+        <li><span class="check">&#10003;</span> Kontaktformular mit E-Mail-Benachrichtigung</li>
+        <li><span class="check">&#10003;</span> Google Maps Integration</li>
+        <li><span class="check">&#10003;</span> Navigation + Footer mit Social Links</li>
+        <li><span class="check">&#10003;</span> SEO-optimiert (bei Google auffindbar)</li>
+        <li><span class="check">&#10003;</span> Zweisprachig (Deutsch + Englisch)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% Verantwortung für zukünftige Fehler</li>
+      </ul>
+      <a href="#contact-de" class="plan-cta outline">Jetzt starten</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Business</div>
+      <div class="plan-for">Volle Kontrolle mit eigenem Admin-Bereich</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">1.300</span></div>
+      <div class="plan-onetime">Einmalzahlung</div>
+      <div class="plan-delivery">&#9202; Lieferung: 1,5 Wochen</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Alles aus Starter, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Admin-Bereich</strong> — alles selbst verwalten</li>
+        <li><span class="check">&#10003;</span> Speisekarte/Dienste mit Fotos & Kategorien</li>
+        <li><span class="check">&#10003;</span> Einträge ein-/ausblenden ohne Löschen</li>
+        <li><span class="check">&#10003;</span> Fotogalerie aus dem Admin verwalten</li>
+        <li><span class="check">&#10003;</span> Hero-Slideshow (Bilder, Videos, GIFs)</li>
+        <li><span class="check">&#10003;</span> Öffnungszeiten-Verwaltung</li>
+        <li><span class="check">&#10003;</span> Premium-Animationen & modernes Design</li>
+        <li><span class="check">&#10003;</span> Domain + Business-E-Mail-Einrichtung</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% Verantwortung für zukünftige Fehler</li>
+      </ul>
+      <a href="#contact-de" class="plan-cta outline">Jetzt starten</a>
+    </div>
+    <div class="plan-card popular">
+      <div class="popular-badge">&#9733; Beliebteste Wahl</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-for">Buchungen & Zahlungen online annehmen</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2.000</span></div>
+      <div class="plan-onetime">Einmalzahlung</div>
+      <div class="plan-delivery">&#9202; Lieferung: 2 Wochen</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Alles aus Business, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Online-Reservierungssystem</strong></li>
+        <li><span class="check">&#10003;</span> Automatische Bestätigungs-E-Mails</li>
+        <li><span class="check">&#10003;</span> Reservierungs-Dashboard</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Online-Bestellung mit sicherer Bezahlung</strong></li>
+        <li><span class="check">&#10003;</span> Kreditkarte, Apple Pay, Google Pay</li>
+        <li><span class="check">&#10003;</span> Bestellbestätigung per E-Mail</li>
+        <li><span class="check">&#10003;</span> Bestellverwaltung mit Status-Tracking</li>
+        <li><span class="check">&#10003;</span> Abholung & Lieferung</li>
+        <li><span class="check">&#10003;</span> Push-Benachrichtigungen (sofortige Alerts)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% Verantwortung für zukünftige Fehler</li>
+      </ul>
+      <a href="#contact-de" class="plan-cta primary">Jetzt starten</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-for">Das komplette digitale System + mobile App</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2.799</span></div>
+      <div class="plan-onetime">Einmalzahlung</div>
+      <div class="plan-delivery">&#9202; Lieferung: 3 Wochen</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Alles aus Growth, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Mobile App</strong> (auf jedem Handy installierbar)</li>
+        <li><span class="check">&#10003;</span> Separate Admin-App für Ihr Handy</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Angebote & Aktionen System</strong></li>
+        <li><span class="check">&#10003;</span> Aktionen nach Datum oder Wochentag planen</li>
+        <li><span class="check">&#10003;</span> „Aktuelles"-Bereich auf der Startseite</li>
+        <li><span class="check">&#10003;</span> 3D-Fotogalerie-Karussell</li>
+        <li><span class="check">&#10003;</span> 9 gebrandete E-Mail-Vorlagen</li>
+        <li><span class="check">&#10003;</span> Funktioniert offline (ohne Internet)</li>
+        <li><span class="check">&#10003;</span> Erweiterte Google-Suchergebnisse</li>
+        <li><span class="check">&#10003;</span> 30 Tage Priority-Support nach Launch</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% Verantwortung für zukünftige Fehler</li>
+      </ul>
+      <a href="#contact-de" class="plan-cta outline">Jetzt starten</a>
+    </div>
+  </div>
+</section>
+
+<div class="plans-section" style="padding-top:0; padding-bottom:48px">
+  <div class="custom-banner">
+    <p>Kein Paket passt genau? <strong>Kein Problem.</strong><br>Sagen Sie uns, was Sie brauchen, und wir erstellen ein individuelles Angebot — nur die Funktionen, die Sie wollen, zu einem fairen Preis.</p>
+  </div>
+</div>
+
+<section class="addons-section">
+  <div class="section-label">Extras</div>
+  <h2 class="section-title">Brauchen Sie etwas Zusätzliches?</h2>
+  <p class="section-subtitle">Fügen Sie diese zu jedem Paket hinzu.</p>
+  <div class="addons-grid">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Zusätzliche Sprache</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Ihre Website in einer weiteren Sprache — Französisch, Türkisch, Arabisch oder jede andere. Ihre Kunden sehen die Seite in ihrer eigenen Sprache.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 E-Mail-Vorlagen</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Gebrandete E-Mails, die automatisch versendet werden — Buchungsbestätigungen, Bestellquittungen oder Willkommensnachrichten. Professionell in Ihren Markenfarben.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Social-Media-Einrichtung</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir richten Ihr Instagram- und Google-Business-Profil ein, verknüpfen es mit Ihrer Website und sorgen dafür, dass Kunden Sie überall finden.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Texterstellung</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir schreiben alle Texte für Ihre Website — über Ihr Unternehmen, Ihre Dienste, Beschreibungen. In zwei Sprachen, sofort einsatzbereit.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Bildrecherche</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir finden bis zu 10 hochwertige Fotos für Ihre Website — Essen, Innenraum oder was auch immer Ihre Seite braucht. Professionell und lizenzfrei.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Monatliche Wartung</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Wir kümmern uns um Updates, Korrekturen und kleine Änderungen jeden Monat. Sie schreiben uns einfach und wir erledigen es.</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="section-label">So funktioniert's</div>
+  <h2 class="section-title">3 einfache Schritte</h2>
+  <p class="section-subtitle">Von der ersten Nachricht bis zur fertigen Website — kein komplizierter Prozess.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <h3>Erzählen Sie uns, was Sie brauchen</h3>
+      <p>Schreiben Sie uns. Erzählen Sie von Ihrem Unternehmen und wählen Sie ein Paket. Wir kümmern uns um den Rest.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <h3>Wir bauen, Sie prüfen</h3>
+      <p>Wir gestalten und entwickeln Ihre Website. Sie prüfen alles und fordern so viele Änderungen wie nötig an — wir übernehmen 100% Verantwortung für zukünftige Fehler.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <h3>Online gehen</h3>
+      <p>Wenn Sie zufrieden sind, starten wir Ihre Website. Wir zeigen Ihnen den Admin-Bereich. Sie haben die volle Kontrolle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Unsere Arbeit</div>
+  <h2 class="section-title">Websites, die wir gebaut haben</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurant &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurant</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Food-Plattform</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section" id="contact-de">
+  <div class="section-label">Bereit?</div>
+  <h2 class="section-title">Lassen Sie uns Ihre Website bauen</h2>
+  <p class="section-subtitle">Schreiben Sie uns — wir antworten innerhalb weniger Stunden. Keine Verpflichtung, einfach ein freundliches Gespräch.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/15738126249" class="cta-btn whatsapp" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp — Daniyal
+    </a>
+    <a href="mailto:mdaniyaldanish@yahoo.com" class="cta-btn email">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      E-Mail senden
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Drittanbieter-Kosten (Domain, E-Mail) werden direkt vom Kunden bezahlt — in der Regel €3–5/Monat. Keine Gebühren von uns.</p>
+</footer>
+
+</div><!-- end lang-de -->
+
+
+<!-- ═══════════════════ FRANÇAIS ═══════════════════ -->
+<div class="lang-content" id="lang-fr">
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#9733; Développement Web Professionnel</div>
+    <h1>Votre entreprise mérite un <span class="gold">site web exceptionnel</span></h1>
+    <p class="hero-subtitle">Des sites web modernes et élégants pour restaurants, cafés, salons et petites entreprises. Prix fixe. Sans surprises. Vous gardez le contrôle.</p>
+    <div class="usp-strip">
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> Aucun frais mensuel</div>
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> 100% responsabilité pour les bugs</div>
+      <div class="usp-item"><span class="usp-icon">&#9881;</span> Contrôle total pour vous</div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="section-label">Pourquoi nous sommes différents</div>
+  <h2 class="section-title">Ce que les autres agences ne vous disent pas</h2>
+  <p class="section-subtitle">La plupart des agences facturent des frais mensuels et vous lient par contrat. Pas nous.</p>
+  <div class="comparison-grid">
+    <div class="compare-card others">
+      <h3><span>&#128308;</span> Autres agences</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10007;</span> 3 000 € – 10 000 €+ pour un site basique</li>
+        <li><span class="icon">&#10007;</span> 50 – 200 €/mois de frais récurrents</li>
+        <li><span class="icon">&#10007;</span> 2–3 révisions, puis supplément</li>
+        <li><span class="icon">&#10007;</span> Vous dépendez d'eux pour chaque modification</li>
+        <li><span class="icon">&#10007;</span> Des mois d'attente</li>
+        <li><span class="icon">&#10007;</span> Coûts cachés pour l'hébergement et le support</li>
+      </ul>
+    </div>
+    <div class="compare-card ours">
+      <h3><span>&#128994;</span> Ce que nous offrons</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10003;</span> À partir de 700 € — site professionnel complet</li>
+        <li><span class="icon">&#10003;</span> <strong>Zéro frais mensuel</strong> de notre part</li>
+        <li><span class="icon">&#10003;</span> <strong>100% de responsabilité</strong> pour les bugs futurs</li>
+        <li><span class="icon">&#10003;</span> Panneau admin — gérez tout vous-même</li>
+        <li><span class="icon">&#10003;</span> Prêt en 1–3 semaines</li>
+        <li><span class="icon">&#10003;</span> Un prix, tout inclus</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div style="text-align:center">
+    <div class="section-label">Forfaits & Tarifs</div>
+    <h2 class="section-title">Choisissez ce qui convient à votre entreprise</h2>
+    <p class="section-subtitle">Chaque forfait inclut 100% de responsabilité pour les bugs futurs et aucun frais mensuel. Payez une fois, c'est à vous pour toujours.</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-for">Une belle présence en ligne pour votre entreprise</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">700</span></div>
+      <div class="plan-onetime">Paiement unique</div>
+      <div class="plan-delivery">&#9202; Livraison : 1 semaine</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Inclus</div>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> Site web moderne et responsive</li>
+        <li><span class="check">&#10003;</span> Parfait sur mobile, tablette & ordinateur</li>
+        <li><span class="check">&#10003;</span> Section À propos</li>
+        <li><span class="check">&#10003;</span> Formulaire de contact avec notifications</li>
+        <li><span class="check">&#10003;</span> Intégration Google Maps</li>
+        <li><span class="check">&#10003;</span> Barre de navigation + pied de page</li>
+        <li><span class="check">&#10003;</span> Optimisé SEO (visible sur Google)</li>
+        <li><span class="check">&#10003;</span> Bilingue (Allemand + Anglais)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilité pour les bugs futurs</li>
+      </ul>
+      <a href="#contact-fr" class="plan-cta outline">Commencer</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Business</div>
+      <div class="plan-for">Contrôle total avec votre panneau d'administration</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">1 200</span></div>
+      <div class="plan-onetime">Paiement unique</div>
+      <div class="plan-delivery">&#9202; Livraison : 1,5 semaine</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tout dans Starter, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Panneau admin</strong> — gérez tout vous-même</li>
+        <li><span class="check">&#10003;</span> Menu/services avec photos & catégories</li>
+        <li><span class="check">&#10003;</span> Masquer/afficher sans supprimer</li>
+        <li><span class="check">&#10003;</span> Galerie photo gérable depuis l'admin</li>
+        <li><span class="check">&#10003;</span> Diaporama hero (images, vidéos, GIFs)</li>
+        <li><span class="check">&#10003;</span> Gestion des horaires d'ouverture</li>
+        <li><span class="check">&#10003;</span> Animations premium & design moderne</li>
+        <li><span class="check">&#10003;</span> Configuration domaine + email pro</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilité pour les bugs futurs</li>
+      </ul>
+      <a href="#contact-fr" class="plan-cta outline">Commencer</a>
+    </div>
+    <div class="plan-card popular">
+      <div class="popular-badge">&#9733; Le plus populaire</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-for">Acceptez réservations & paiements en ligne</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2 000</span></div>
+      <div class="plan-onetime">Paiement unique</div>
+      <div class="plan-delivery">&#9202; Livraison : 2 semaines</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tout dans Business, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Système de réservation en ligne</strong></li>
+        <li><span class="check">&#10003;</span> E-mails de confirmation automatiques</li>
+        <li><span class="check">&#10003;</span> Tableau de bord des réservations</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Commande en ligne avec paiement sécurisé</strong></li>
+        <li><span class="check">&#10003;</span> Carte de crédit, Apple Pay, Google Pay</li>
+        <li><span class="check">&#10003;</span> E-mails de confirmation de commande</li>
+        <li><span class="check">&#10003;</span> Gestion des commandes avec suivi</li>
+        <li><span class="check">&#10003;</span> Options retrait & livraison</li>
+        <li><span class="check">&#10003;</span> Notifications push (alertes instantanées)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilité pour les bugs futurs</li>
+      </ul>
+      <a href="#contact-fr" class="plan-cta primary">Commencer</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-for">Le système digital complet + application mobile</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2 500</span></div>
+      <div class="plan-onetime">Paiement unique</div>
+      <div class="plan-delivery">&#9202; Livraison : 3 semaines</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tout dans Growth, plus</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Application mobile</strong> (installable sur tout téléphone)</li>
+        <li><span class="check">&#10003;</span> Application admin séparée</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Système d'offres & promotions</strong></li>
+        <li><span class="check">&#10003;</span> Planifier par date ou jour de la semaine</li>
+        <li><span class="check">&#10003;</span> Section « Actualités » sur la page d'accueil</li>
+        <li><span class="check">&#10003;</span> Galerie 3D carrousel</li>
+        <li><span class="check">&#10003;</span> 9 modèles d'e-mails personnalisés</li>
+        <li><span class="check">&#10003;</span> Fonctionne hors ligne</li>
+        <li><span class="check">&#10003;</span> Résultats enrichis sur Google</li>
+        <li><span class="check">&#10003;</span> 30 jours de support prioritaire</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilité pour les bugs futurs</li>
+      </ul>
+      <a href="#contact-fr" class="plan-cta outline">Commencer</a>
+    </div>
+  </div>
+</section>
+
+<div class="plans-section" style="padding-top:0; padding-bottom:48px">
+  <div class="custom-banner">
+    <p>Aucun forfait ne correspond exactement ? <strong>Pas de problème.</strong><br>Dites-nous ce dont vous avez besoin et nous créons une offre sur mesure — uniquement les fonctions que vous souhaitez, à un prix juste.</p>
+  </div>
+</div>
+
+<section class="addons-section">
+  <div class="section-label">Options supplémentaires</div>
+  <h2 class="section-title">Besoin de quelque chose en plus ?</h2>
+  <p class="section-subtitle">Ajoutez ces options à n'importe quel forfait.</p>
+  <div class="addons-grid">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Langue supplémentaire</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Votre site dans une langue supplémentaire — français, turc, arabe ou toute autre. Vos clients voient le site dans leur propre langue.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 modèles d'e-mails</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Des e-mails automatiques et personnalisés — confirmations de réservation, reçus de commande ou messages de bienvenue. Aux couleurs de votre marque.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Config. réseaux sociaux</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous configurons votre Instagram et Google Business, les relions à votre site et nous assurons que vos clients vous trouvent partout.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Rédaction de contenu</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous rédigeons tous les textes de votre site — présentation, services, descriptions. En deux langues, prêts à publier.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Recherche d'images</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous trouvons jusqu'à 10 photos de qualité pour votre site — nourriture, intérieur ou tout ce dont votre site a besoin. Professionnelles et libres de droits.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Maintenance mensuelle</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Nous gérons les mises à jour, corrections et petites modifications chaque mois. Envoyez-nous un message et on s'en occupe.</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="section-label">Comment ça marche</div>
+  <h2 class="section-title">3 étapes simples</h2>
+  <p class="section-subtitle">Du premier message au site en ligne — aucun processus compliqué.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <h3>Dites-nous ce dont vous avez besoin</h3>
+      <p>Envoyez-nous un message. Parlez-nous de votre entreprise et choisissez un forfait. On s'occupe du reste.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <h3>On construit, vous validez</h3>
+      <p>On conçoit et développe votre site. Vous le vérifiez et demandez autant de modifications que vous voulez — nous assumons 100% de responsabilité pour les bugs futurs.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <h3>Mise en ligne</h3>
+      <p>Une fois satisfait, on lance votre site. On vous montre comment utiliser l'admin. Vous avez le contrôle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Notre travail</div>
+  <h2 class="section-title">Sites web que nous avons créés</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurant &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurant</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Plateforme culinaire</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section" id="contact-fr">
+  <div class="section-label">Prêt ?</div>
+  <h2 class="section-title">Construisons votre site web</h2>
+  <p class="section-subtitle">Envoyez-nous un message — nous répondons en quelques heures. Sans engagement, juste une conversation amicale.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/15738126249" class="cta-btn whatsapp" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp — Daniyal
+    </a>
+    <a href="mailto:mdaniyaldanish@yahoo.com" class="cta-btn email">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      E-mail
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Les frais tiers (domaine, e-mail) sont payés directement par le client — généralement 3 à 5 €/mois. Aucun frais de notre part.</p>
+</footer>
+
+</div><!-- end lang-fr -->
+
+
+<!-- ═══════════════════ ITALIANO ═══════════════════ -->
+<div class="lang-content" id="lang-it">
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#9733; Sviluppo Web Professionale</div>
+    <h1>La tua attività merita un <span class="gold">sito web eccezionale</span></h1>
+    <p class="hero-subtitle">Siti web belli e moderni per ristoranti, caffè, saloni e piccole imprese. Prezzo fisso. Nessuna sorpresa. Mantieni il controllo.</p>
+    <div class="usp-strip">
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> Nessun costo mensile</div>
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> 100% responsabilità per i bug</div>
+      <div class="usp-item"><span class="usp-icon">&#9881;</span> Controllo totale per te</div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="section-label">Perché siamo diversi</div>
+  <h2 class="section-title">Quello che le altre agenzie non ti dicono</h2>
+  <p class="section-subtitle">La maggior parte delle agenzie addebita costi mensili e ti vincola con contratti. Noi no.</p>
+  <div class="comparison-grid">
+    <div class="compare-card others">
+      <h3><span>&#128308;</span> Altre agenzie</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10007;</span> €3.000 – €10.000+ per un sito base</li>
+        <li><span class="icon">&#10007;</span> €50 – €200/mese di costi ricorrenti</li>
+        <li><span class="icon">&#10007;</span> 2–3 revisioni, poi costi extra</li>
+        <li><span class="icon">&#10007;</span> Dipendi da loro per ogni modifica</li>
+        <li><span class="icon">&#10007;</span> Mesi di attesa</li>
+        <li><span class="icon">&#10007;</span> Costi nascosti per hosting e supporto</li>
+      </ul>
+    </div>
+    <div class="compare-card ours">
+      <h3><span>&#128994;</span> Cosa offriamo noi</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10003;</span> Da €700 — sito web professionale completo</li>
+        <li><span class="icon">&#10003;</span> <strong>Zero costi mensili</strong> da parte nostra</li>
+        <li><span class="icon">&#10003;</span> <strong>100% di responsabilità</strong> per bug futuri</li>
+        <li><span class="icon">&#10003;</span> Pannello admin — gestisci tutto da solo</li>
+        <li><span class="icon">&#10003;</span> Pronto in 1–3 settimane</li>
+        <li><span class="icon">&#10003;</span> Un prezzo, tutto incluso</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div style="text-align:center">
+    <div class="section-label">Piani & Prezzi</div>
+    <h2 class="section-title">Scegli quello giusto per la tua attività</h2>
+    <p class="section-subtitle">Ogni piano include 100% di responsabilità per bug futuri e nessun costo mensile. Paga una volta, è tuo per sempre.</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-for">Una bella presenza online per la tua attività</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">700</span></div>
+      <div class="plan-onetime">Pagamento unico</div>
+      <div class="plan-delivery">&#9202; Consegna: 1 settimana</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Incluso</div>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> Sito web moderno e responsive</li>
+        <li><span class="check">&#10003;</span> Perfetto su telefono, tablet e computer</li>
+        <li><span class="check">&#10003;</span> Sezione Chi siamo</li>
+        <li><span class="check">&#10003;</span> Modulo contatti con notifiche email</li>
+        <li><span class="check">&#10003;</span> Integrazione Google Maps</li>
+        <li><span class="check">&#10003;</span> Barra di navigazione + footer</li>
+        <li><span class="check">&#10003;</span> Ottimizzato SEO (visibile su Google)</li>
+        <li><span class="check">&#10003;</span> Bilingue (Tedesco + Inglese)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% di responsabilità per bug futuri</li>
+      </ul>
+      <a href="#contact-it" class="plan-cta outline">Inizia ora</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Business</div>
+      <div class="plan-for">Controllo totale con il tuo pannello admin</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">1.300</span></div>
+      <div class="plan-onetime">Pagamento unico</div>
+      <div class="plan-delivery">&#9202; Consegna: 1,5 settimane</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tutto in Starter, più</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Pannello admin</strong> — gestisci tutto da solo</li>
+        <li><span class="check">&#10003;</span> Menu/servizi con foto e categorie</li>
+        <li><span class="check">&#10003;</span> Mostra/nascondi senza eliminare</li>
+        <li><span class="check">&#10003;</span> Galleria fotografica gestibile dall'admin</li>
+        <li><span class="check">&#10003;</span> Slideshow hero (immagini, video, GIF)</li>
+        <li><span class="check">&#10003;</span> Gestione orari di apertura</li>
+        <li><span class="check">&#10003;</span> Animazioni premium e design moderno</li>
+        <li><span class="check">&#10003;</span> Configurazione dominio + email aziendale</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% di responsabilità per bug futuri</li>
+      </ul>
+      <a href="#contact-it" class="plan-cta outline">Inizia ora</a>
+    </div>
+    <div class="plan-card popular">
+      <div class="popular-badge">&#9733; Più popolare</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-for">Accetta prenotazioni e pagamenti online</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2.000</span></div>
+      <div class="plan-onetime">Pagamento unico</div>
+      <div class="plan-delivery">&#9202; Consegna: 2 settimane</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tutto in Business, più</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Sistema di prenotazione online</strong></li>
+        <li><span class="check">&#10003;</span> Email di conferma automatiche</li>
+        <li><span class="check">&#10003;</span> Dashboard prenotazioni</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Ordini online con pagamento sicuro</strong></li>
+        <li><span class="check">&#10003;</span> Carta di credito, Apple Pay, Google Pay</li>
+        <li><span class="check">&#10003;</span> Email di conferma ordine</li>
+        <li><span class="check">&#10003;</span> Gestione ordini con tracciamento stato</li>
+        <li><span class="check">&#10003;</span> Ritiro e consegna</li>
+        <li><span class="check">&#10003;</span> Notifiche push (avvisi istantanei)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% di responsabilità per bug futuri</li>
+      </ul>
+      <a href="#contact-it" class="plan-cta primary">Inizia ora</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-for">Il sistema digitale completo + app mobile</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2.799</span></div>
+      <div class="plan-onetime">Pagamento unico</div>
+      <div class="plan-delivery">&#9202; Consegna: 3 settimane</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tutto in Growth, più</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>App mobile</strong> (installabile su qualsiasi telefono)</li>
+        <li><span class="check">&#10003;</span> App admin separata per il tuo telefono</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Sistema offerte e promozioni</strong></li>
+        <li><span class="check">&#10003;</span> Programma per data o giorno della settimana</li>
+        <li><span class="check">&#10003;</span> Sezione "Novità" nella homepage</li>
+        <li><span class="check">&#10003;</span> Galleria 3D carosello</li>
+        <li><span class="check">&#10003;</span> 9 modelli email personalizzati</li>
+        <li><span class="check">&#10003;</span> Funziona offline (senza internet)</li>
+        <li><span class="check">&#10003;</span> Risultati avanzati su Google</li>
+        <li><span class="check">&#10003;</span> 30 giorni di supporto prioritario</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% di responsabilità per bug futuri</li>
+      </ul>
+      <a href="#contact-it" class="plan-cta outline">Inizia ora</a>
+    </div>
+  </div>
+</section>
+
+<div class="plans-section" style="padding-top:0; padding-bottom:48px">
+  <div class="custom-banner">
+    <p>Nessun piano è perfetto per te? <strong>Nessun problema.</strong><br>Dicci cosa ti serve e creeremo un'offerta personalizzata — solo le funzioni che vuoi, a un prezzo giusto.</p>
+  </div>
+</div>
+
+<section class="addons-section">
+  <div class="section-label">Opzioni aggiuntive</div>
+  <h2 class="section-title">Serve qualcosa in più?</h2>
+  <p class="section-subtitle">Aggiungi queste opzioni a qualsiasi piano.</p>
+  <div class="addons-grid">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Lingua aggiuntiva</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Il tuo sito in un'altra lingua — francese, turco, arabo o qualsiasi altra. I tuoi clienti vedono il sito nella loro lingua.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 modelli email</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Email automatiche e personalizzate — conferme di prenotazione, ricevute d'ordine o messaggi di benvenuto. Professionali nei colori del tuo brand.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Config. social media</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Configuriamo il tuo Instagram e Google Business, li colleghiamo al sito e ci assicuriamo che i clienti ti trovino ovunque.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Scrittura contenuti</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Scriviamo tutti i testi del tuo sito — presentazione, servizi, descrizioni. In due lingue, pronti per la pubblicazione.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Ricerca immagini</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Troviamo fino a 10 foto di qualità per il tuo sito — cibo, interni o qualsiasi cosa serva. Professionali e royalty-free.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Manutenzione mensile</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Ci occupiamo di aggiornamenti, correzioni e piccole modifiche ogni mese. Mandaci un messaggio e ce ne occupiamo noi.</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="section-label">Come funziona</div>
+  <h2 class="section-title">3 semplici passi</h2>
+  <p class="section-subtitle">Dal primo messaggio al sito online — nessun processo complicato.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <h3>Dicci di cosa hai bisogno</h3>
+      <p>Inviaci un messaggio. Parlaci della tua attività e scegli un piano. Al resto pensiamo noi.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <h3>Noi costruiamo, tu verifichi</h3>
+      <p>Progettiamo e sviluppiamo il tuo sito. Tu lo verifichi e chiedi tutte le modifiche che vuoi — ci assumiamo il 100% di responsabilità per bug futuri.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <h3>Online</h3>
+      <p>Quando sei soddisfatto, lanciamo il tuo sito. Ti mostriamo come usare l'admin. Hai il controllo totale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Il nostro lavoro</div>
+  <h2 class="section-title">Siti web che abbiamo creato</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Ristorante &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Ristorante</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Piattaforma alimentare</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section" id="contact-it">
+  <div class="section-label">Pronto?</div>
+  <h2 class="section-title">Costruiamo il tuo sito web</h2>
+  <p class="section-subtitle">Inviaci un messaggio — rispondiamo entro poche ore. Nessun impegno, solo una conversazione amichevole.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/15738126249" class="cta-btn whatsapp" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp — Daniyal
+    </a>
+    <a href="mailto:mdaniyaldanish@yahoo.com" class="cta-btn email">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>I costi di terze parti (dominio, email) sono pagati direttamente dal cliente — generalmente €3–5/mese. Nessun costo da parte nostra.</p>
+</footer>
+
+</div><!-- end lang-it -->
+
+
+<!-- ═══════════════════ PORTUGUÊS ═══════════════════ -->
+<div class="lang-content" id="lang-pt">
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">&#9733; Desenvolvimento Web Profissional</div>
+    <h1>O seu negócio merece um <span class="gold">site incrível</span></h1>
+    <p class="hero-subtitle">Sites modernos e bonitos para restaurantes, cafés, salões e pequenos negócios. Preço fixo. Sem surpresas. Você mantém o controle.</p>
+    <div class="usp-strip">
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> Sem taxas mensais</div>
+      <div class="usp-item"><span class="usp-icon">&#10003;</span> 100% responsabilidade por bugs</div>
+      <div class="usp-item"><span class="usp-icon">&#9881;</span> Controle total para você</div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="section-label">Por que somos diferentes</div>
+  <h2 class="section-title">O que outras agências não contam</h2>
+  <p class="section-subtitle">A maioria das agências cobra taxas mensais e prende você em contratos. Nós não.</p>
+  <div class="comparison-grid">
+    <div class="compare-card others">
+      <h3><span>&#128308;</span> Outras agências</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10007;</span> €3.000 – €10.000+ por um site básico</li>
+        <li><span class="icon">&#10007;</span> €50 – €200/mês de custos recorrentes</li>
+        <li><span class="icon">&#10007;</span> 2–3 revisões, depois cobram extra</li>
+        <li><span class="icon">&#10007;</span> Você depende deles para cada mudança</li>
+        <li><span class="icon">&#10007;</span> Meses de espera</li>
+        <li><span class="icon">&#10007;</span> Custos ocultos de hospedagem e suporte</li>
+      </ul>
+    </div>
+    <div class="compare-card ours">
+      <h3><span>&#128994;</span> O que oferecemos</h3>
+      <ul class="compare-list">
+        <li><span class="icon">&#10003;</span> A partir de €700 — site profissional completo</li>
+        <li><span class="icon">&#10003;</span> <strong>Zero taxas mensais</strong> da nossa parte</li>
+        <li><span class="icon">&#10003;</span> <strong>100% de responsabilidade</strong> por bugs futuros</li>
+        <li><span class="icon">&#10003;</span> Painel admin — gerencie tudo sozinho</li>
+        <li><span class="icon">&#10003;</span> Pronto em 1–3 semanas</li>
+        <li><span class="icon">&#10003;</span> Um preço, tudo incluído</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div style="text-align:center">
+    <div class="section-label">Planos & Preços</div>
+    <h2 class="section-title">Escolha o ideal para o seu negócio</h2>
+    <p class="section-subtitle">Cada plano inclui 100% de responsabilidade por bugs futuros e sem taxas mensais. Pague uma vez, é seu para sempre.</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-for">Uma bela presença online para o seu negócio</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">700</span></div>
+      <div class="plan-onetime">Pagamento único</div>
+      <div class="plan-delivery">&#9202; Entrega: 1 semana</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Incluído</div>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> Site moderno e responsivo</li>
+        <li><span class="check">&#10003;</span> Perfeito em celular, tablet e computador</li>
+        <li><span class="check">&#10003;</span> Seção Sobre nós</li>
+        <li><span class="check">&#10003;</span> Formulário de contato com notificações</li>
+        <li><span class="check">&#10003;</span> Integração Google Maps</li>
+        <li><span class="check">&#10003;</span> Barra de navegação + rodapé</li>
+        <li><span class="check">&#10003;</span> Otimizado para SEO (visível no Google)</li>
+        <li><span class="check">&#10003;</span> Bilíngue (Alemão + Inglês)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilidade por bugs futuros</li>
+      </ul>
+      <a href="#contact-pt" class="plan-cta outline">Começar</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Business</div>
+      <div class="plan-for">Controle total com seu painel de administração</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">1.300</span></div>
+      <div class="plan-onetime">Pagamento único</div>
+      <div class="plan-delivery">&#9202; Entrega: 1,5 semana</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tudo do Starter, mais</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Painel admin</strong> — gerencie tudo sozinho</li>
+        <li><span class="check">&#10003;</span> Menu/serviços com fotos e categorias</li>
+        <li><span class="check">&#10003;</span> Mostrar/ocultar sem excluir</li>
+        <li><span class="check">&#10003;</span> Galeria de fotos gerenciável pelo admin</li>
+        <li><span class="check">&#10003;</span> Slideshow hero (imagens, vídeos, GIFs)</li>
+        <li><span class="check">&#10003;</span> Gestão de horários de funcionamento</li>
+        <li><span class="check">&#10003;</span> Animações premium e design moderno</li>
+        <li><span class="check">&#10003;</span> Configuração de domínio + email comercial</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilidade por bugs futuros</li>
+      </ul>
+      <a href="#contact-pt" class="plan-cta outline">Começar</a>
+    </div>
+    <div class="plan-card popular">
+      <div class="popular-badge">&#9733; Mais popular</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-for">Aceite reservas e pagamentos online</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2.000</span></div>
+      <div class="plan-onetime">Pagamento único</div>
+      <div class="plan-delivery">&#9202; Entrega: 2 semanas</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tudo do Business, mais</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Sistema de reservas online</strong></li>
+        <li><span class="check">&#10003;</span> Emails de confirmação automáticos</li>
+        <li><span class="check">&#10003;</span> Painel de reservas</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Pedidos online com pagamento seguro</strong></li>
+        <li><span class="check">&#10003;</span> Cartão de crédito, Apple Pay, Google Pay</li>
+        <li><span class="check">&#10003;</span> Email de confirmação de pedido</li>
+        <li><span class="check">&#10003;</span> Gestão de pedidos com rastreamento</li>
+        <li><span class="check">&#10003;</span> Retirada e entrega</li>
+        <li><span class="check">&#10003;</span> Notificações push (alertas instantâneos)</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilidade por bugs futuros</li>
+      </ul>
+      <a href="#contact-pt" class="plan-cta primary">Começar</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-for">O sistema digital completo + aplicativo móvel</div>
+      <div class="plan-price"><span class="currency">€</span><span class="amount">2.799</span></div>
+      <div class="plan-onetime">Pagamento único</div>
+      <div class="plan-delivery">&#9202; Entrega: 3 semanas</div>
+      <div class="plan-divider"></div>
+      <div class="plan-includes-label">Tudo do Growth, mais</div>
+      <ul class="plan-features">
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Aplicativo móvel</strong> (instalável em qualquer celular)</li>
+        <li><span class="check">&#10003;</span> Aplicativo admin separado para seu celular</li>
+        <li class="highlight"><span class="check">&#10003;</span> <strong>Sistema de ofertas e promoções</strong></li>
+        <li><span class="check">&#10003;</span> Agende por data ou dia da semana</li>
+        <li><span class="check">&#10003;</span> Seção "Novidades" na página inicial</li>
+        <li><span class="check">&#10003;</span> Galeria 3D carrossel</li>
+        <li><span class="check">&#10003;</span> 9 modelos de email personalizados</li>
+        <li><span class="check">&#10003;</span> Funciona offline (sem internet)</li>
+        <li><span class="check">&#10003;</span> Resultados avançados no Google</li>
+        <li><span class="check">&#10003;</span> 30 dias de suporte prioritário</li>
+        <li class="highlight"><span class="check">&#10003;</span> 100% de responsabilidade por bugs futuros</li>
+      </ul>
+      <a href="#contact-pt" class="plan-cta outline">Começar</a>
+    </div>
+  </div>
+</section>
+
+<div class="plans-section" style="padding-top:0; padding-bottom:48px">
+  <div class="custom-banner">
+    <p>Nenhum plano encaixa perfeitamente? <strong>Sem problema.</strong><br>Diga-nos o que precisa e criamos uma oferta personalizada — apenas as funções que você quer, a um preço justo.</p>
+  </div>
+</div>
+
+<section class="addons-section">
+  <div class="section-label">Extras</div>
+  <h2 class="section-title">Precisa de algo a mais?</h2>
+  <p class="section-subtitle">Adicione estas opções a qualquer plano.</p>
+  <div class="addons-grid">
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#127760;</div><div class="addon-name">Idioma adicional</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Seu site em outro idioma — francês, turco, árabe ou qualquer outro. Seus clientes veem o site no próprio idioma.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9993;</div><div class="addon-name">5 modelos de email</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Emails automáticos e personalizados — confirmações de reserva, recibos de pedido ou mensagens de boas-vindas. Profissionais nas cores da sua marca.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128247;</div><div class="addon-name">Config. redes sociais</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Configuramos seu Instagram e Google Meu Negócio, conectamos ao site e garantimos que seus clientes encontrem você em todo lugar.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#9997;</div><div class="addon-name">Escrita de conteúdo</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Escrevemos todos os textos do seu site — sobre seu negócio, serviços, descrições. Em dois idiomas, prontos para publicar.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128248;</div><div class="addon-name">Pesquisa de imagens</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Encontramos até 10 fotos de qualidade para seu site — comida, interior ou qualquer coisa que seu site precise. Profissionais e livres de direitos.</div>
+    </div>
+    <div class="addon-card" onclick="this.classList.toggle('expanded')">
+      <div class="addon-icon">&#128736;</div><div class="addon-name">Manutenção mensal</div><div class="addon-price">€100</div>
+      <div class="addon-desc">Cuidamos de atualizações, correções e pequenas alterações todo mês. Envie uma mensagem e nós resolvemos.</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-section">
+  <div class="section-label">Como funciona</div>
+  <h2 class="section-title">3 passos simples</h2>
+  <p class="section-subtitle">Da primeira mensagem ao site no ar — sem processos complicados.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <h3>Conte-nos o que precisa</h3>
+      <p>Envie uma mensagem. Fale sobre seu negócio e escolha um plano. Cuidamos do resto.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <h3>Nós construímos, você revisa</h3>
+      <p>Projetamos e desenvolvemos seu site. Você revisa e pede quantas mudanças quiser — assumimos 100% de responsabilidade por bugs futuros.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <h3>Ir ao ar</h3>
+      <p>Quando estiver satisfeito, lançamos seu site. Mostramos como usar o admin. Você tem o controle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-section">
+  <div class="section-label">Nosso trabalho</div>
+  <h2 class="section-title">Sites que construímos</h2>
+  <div class="portfolio-grid">
+    <a href="https://zaiqa-spices.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127858;</div>
+      <div class="p-info"><div class="p-name">Zaiqa Spices</div><div class="p-type">Restaurante &middot; Dortmund</div></div>
+    </a>
+    <a href="https://my-tibet-hause.vercel.app/" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127956;</div>
+      <div class="p-info"><div class="p-name">Tibet Hause</div><div class="p-type">Restaurante</div></div>
+    </a>
+    <a href="https://reciply.de" target="_blank" class="portfolio-card">
+      <div class="p-icon">&#127859;</div>
+      <div class="p-info"><div class="p-name">Reciply</div><div class="p-type">Plataforma de comida</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="cta-section" id="contact-pt">
+  <div class="section-label">Pronto?</div>
+  <h2 class="section-title">Vamos construir o seu site</h2>
+  <p class="section-subtitle">Envie-nos uma mensagem — respondemos em poucas horas. Sem compromisso, apenas uma conversa amigável.</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/15738126249" class="cta-btn whatsapp" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp — Daniyal
+    </a>
+    <a href="mailto:mdaniyaldanish@yahoo.com" class="cta-btn email">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Custos de terceiros (domínio, email) são pagos diretamente pelo cliente — geralmente €3–5/mês. Sem taxas da nossa parte.</p>
+</footer>
+
+</div><!-- end lang-pt -->
+
+
+<!-- Language Switcher Script -->
+<script>
+function setLang(lang) {
+  // Hide all lang content
+  document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+  // Show selected lang
+  document.getElementById('lang-' + lang).classList.add('active');
+  // Update buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
